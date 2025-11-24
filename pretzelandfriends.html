@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDG 16 - Peace, Justice and Strong Institutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8f9fa;
+        }
+
+        /* CUSTOMIZATION ZONE 1: Top Banner */
+        .top-banner {
+            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 50%, #1e3a8a 100%);
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            padding: 20px 5%;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .logo h1 {
+            color: #1e3a8a;
+            font-size: 1.4rem;
+        }
+
+        /* CUSTOMIZATION ZONE 2: Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            padding: 80px 5%;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content h2 {
+            font-size: 3.5rem;
+            color: #1e3a8a;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 35px;
+            line-height: 1.8;
+        }
+
+        .hero-image {
+            position: relative;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* CUSTOMIZATION ZONE 3: Button Styles */
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(30, 58, 138, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: white;
+            color: #1e3a8a;
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid #1e3a8a;
+            margin-left: 15px;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            padding: 60px 5%;
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* CUSTOMIZATION ZONE 4: Features Section */
+        .features-section {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-left: 5px solid #3b82f6;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            margin-bottom: 25px;
+        }
+
+        .feature-box h3 {
+            color: #1e3a8a;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-box p {
+            color: #64748b;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* CUSTOMIZATION ZONE 5: Image Gallery Section */
+        .gallery-section {
+            padding: 100px 5%;
+            background: linear-gradient(180deg, #f8f9fa 0%, white 100%);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 50px auto 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 30px;
+        }
+
+        .gallery-overlay h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        /* CUSTOMIZATION ZONE 6: CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            padding: 100px 5%;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-white {
+            background: white;
+            color: #1e3a8a;
+            padding: 20px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+
+        /* CUSTOMIZATION ZONE 7: Footer */
+        .footer {
+            background: #0f172a;
+            color: white;
+            padding: 60px 5% 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            max-width: 1400px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #3b82f6;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            color: #cbd5e1;
+            line-height: 2;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-column a:hover {
+            color: #3b82f6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image {
+                height: 400px;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+
+            .features-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================ -->
+    <!-- CUSTOMIZATION ZONE 1: TOP BANNER -->
+    <!-- ============================================ -->
+    <div class="top-banner">
+        🌍 Your announcement or important message here - Supporting SDG 16
+        <!-- TO CUSTOMIZE: Replace this text with your announcement -->
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <div class="logo-icon">⚖️</div>
+            <!-- TO CUSTOMIZE: Change the emoji icon (⚖️, 🕊️, 🤝, etc.) -->
+            <h1>Your Organization Name</h1>
+            <!-- TO CUSTOMIZE: Replace with your organization name -->
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- CUSTOMIZATION ZONE 2: HERO SECTION -->
+    <!-- ============================================ -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Building a More Just and Peaceful World</h2>
+            <!-- TO CUSTOMIZE: Replace with your main headline -->
+            
+            <p>Your mission statement goes here. Describe how your organization works towards achieving peace, justice, and strong institutions. Make it compelling and clear.</p>
+            <!-- TO CUSTOMIZE: Replace with your mission statement -->
+            
+            <!-- ============================================ -->
+            <!-- CUSTOMIZATION ZONE 3: HERO BUTTONS -->
+            <!-- ============================================ -->
+            <div>
+                <a href="https://your-primary-link.com" class="btn-primary">Get Involved</a>
+                <!-- TO CUSTOMIZE: Replace URL and button text -->
+                
+                <a href="https://your-secondary-link.com" class="btn-secondary">Learn More</a>
+                <!-- TO CUSTOMIZE: Replace URL and button text -->
+            </div>
+        </div>
+        
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200" alt="Hero Image">
+            <!-- TO CUSTOMIZE: Replace src URL with your own hero image -->
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <!-- STAT 1 -->
+            <div class="stat-card">
+                <div class="stat-number">1,000+</div>
+                <!-- TO CUSTOMIZE: Replace with your number -->
+                <div class="stat-label">People Impacted</div>
+                <!-- TO CUSTOMIZE: Replace with your label -->
+            </div>
+            
+            <!-- STAT 2 -->
+            <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <!-- TO CUSTOMIZE: Replace with your number -->
+                <div class="stat-label">Projects Completed</div>
+                <!-- TO CUSTOMIZE: Replace with your label -->
+            </div>
+            
+            <!-- STAT 3 -->
+            <div class="stat-card">
+                <div class="stat-number">25</div>
+                <!-- TO CUSTOMIZE: Replace with your number -->
+                <div class="stat-label">Countries Reached</div>
+                <!-- TO CUSTOMIZE: Replace with your label -->
+            </div>
+            
+            <!-- STAT 4 -->
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <!-- TO CUSTOMIZE: Replace with your number -->
+                <div class="stat-label">Commitment to Justice</div>
+                <!-- TO CUSTOMIZE: Replace with your label -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CUSTOMIZATION ZONE 4: FEATURES SECTION -->
+    <!-- ============================================ -->
+    <section class="features-section">
+        <div class="section-header">
+            <h2>Our Key Focus Areas</h2>
+            <!-- TO CUSTOMIZE: Change section title -->
+            
+            <p>Brief description of your work and how you're making a difference in achieving SDG 16 goals.</p>
+            <!-- TO CUSTOMIZE: Replace with your description -->
+        </div>
+
+        <div class="features-grid">
+            <!-- FEATURE BOX 1 -->
+            <div class="feature-box">
+                <div class="feature-icon">🕊️</div>
+                <!-- TO CUSTOMIZE: Change icon emoji -->
+                
+                <h3>Peace Building</h3>
+                <!-- TO CUSTOMIZE: Change title -->
+                
+                <p>Describe your peace building initiatives, conflict resolution programs, or mediation services. Explain the impact and approach.</p>
+                <!-- TO CUSTOMIZE: Replace with your description -->
+            </div>
+
+            <!-- FEATURE BOX 2 -->
+            <div class="feature-box">
+                <div class="feature-icon">⚖️</div>
+                <!-- TO CUSTOMIZE: Change icon emoji -->
+                
+                <h3>Justice & Equality</h3>
+                <!-- TO CUSTOMIZE: Change title -->
+                
+                <p>Detail your work in promoting justice, legal aid, human rights advocacy, or equal access to legal systems for all.</p>
+                <!-- TO CUSTOMIZE: Replace with your description -->
+            </div>
+
+            <!-- FEATURE BOX 3 -->
+            <div class="feature-box">
+                <div class="feature-icon">🏛️</div>
+                <!-- TO CUSTOMIZE: Change icon emoji -->
+                
+                <h3>Strong Institutions</h3>
+                <!-- TO CUSTOMIZE: Change title -->
+                
+                <p>Explain how you build effective, accountable, and inclusive institutions that serve all members of society.</p>
+                <!-- TO CUSTOMIZE: Replace with your description -->
+            </div>
+
+            <!-- FEATURE BOX 4 -->
+            <div class="feature-box">
+                <div class="feature-icon">🤝</div>
+                <!-- TO CUSTOMIZE: Change icon emoji -->
+                
+                <h3>Community Engagement</h3>
+                <!-- TO CUSTOMIZE: Change title -->
+                
+                <p>Share your community programs, partnerships, and collaborative efforts to strengthen civil society.</p>
+                <!-- TO CUSTOMIZE: Replace with your description -->
+            </div>
+
+            <!-- FEATURE BOX 5 -->
+            <div class="feature-box">
+                <div class="feature-icon">📚</div>
+                <!-- TO CUSTOMIZE: Change icon emoji -->
+                
+                <h3>Education & Training</h3>
+                <!-- TO CUSTOMIZE: Change title -->
+                
+                <p>Describe your educational programs, capacity building, workshops, or training initiatives.</p>
+                <!-- TO CUSTOMIZE: Replace with your description -->
+            </div>
+
+            <!-- FEATURE BOX 6 -->
+            <div class="feature-box">
+                <div class="feature-icon">🌐</div>
+                <!-- TO CUSTOMIZE: Change icon emoji -->
+                
+                <h3>Global Partnerships</h3>
+                <!-- TO CUSTOMIZE: Change title -->
+                
+                <p>Highlight your international collaborations, networks, and partnerships working towards SDG 16.</p>
+                <!-- TO CUSTOMIZE: Replace with your description -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CUSTOMIZATION ZONE 5: IMAGE GALLERY SECTION -->
+    <!-- ============================================ -->
+    <section class="gallery-section">
+        <div class="section-header">
+            <h2>Our Impact in Action</h2>
+            <!-- TO CUSTOMIZE: Change section title -->
+            
+            <p>See the real-world impact of our work in communities around the world.</p>
+            <!-- TO CUSTOMIZE: Replace with your description -->
+        </div>
+
+        <div class="gallery-grid">
+            <!-- GALLERY ITEM 1 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=800" alt="Gallery Image 1">
+                <!-- TO CUSTOMIZE: Replace src URL with your image -->
+                
+                <div class="gallery-overlay">
+                    <h3>Project Title 1</h3>
+                    <!-- TO CUSTOMIZE: Replace with your project title -->
+                    <p>Brief description</p>
+                    <!-- TO CUSTOMIZE: Replace with brief description -->
+                </div>
+            </div>
+
+            <!-- GALLERY ITEM 2 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800" alt="Gallery Image 2">
+                <!-- TO CUSTOMIZE: Replace src URL with your image -->
+                
+                <div class="gallery-overlay">
+                    <h3>Project Title 2</h3>
+                    <!-- TO CUSTOMIZE: Replace with your project title -->
+                    <p>Brief description</p>
+                    <!-- TO CUSTOMIZE: Replace with brief description -->
+                </div>
+            </div>
+
+            <!-- GALLERY ITEM 3 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800" alt="Gallery Image 3">
+                <!-- TO CUSTOMIZE: Replace src URL with your image -->
+                
+                <div class="gallery-overlay">
+                    <h3>Project Title 3</h3>
+                    <!-- TO CUSTOMIZE: Replace with your project title -->
+                    <p>Brief description</p>
+                    <!-- TO CUSTOMIZE: Replace with brief description -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CUSTOMIZATION ZONE 6: CALL-TO-ACTION SECTION -->
+    <!-- ============================================ -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Make a Difference?</h2>
+            <!-- TO CUSTOMIZE: Change CTA headline -->
+            
+            <p>Join us in our mission to create a more just, peaceful, and inclusive world. Your support can help change lives.</p>
+            <!-- TO CUSTOMIZE: Replace with your CTA message -->
+            
+            <a href="https://your-action-link.com" class="btn-white">Take Action Today</a>
+            <!-- TO CUSTOMIZE: Replace URL and button text -->
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CUSTOMIZATION ZONE 7: FOOTER -->
+    <!-- ============================================ -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- FOOTER COLUMN 1 -->
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>Your organization's brief description or tagline. Committed to SDG 16: Peace, Justice and Strong Institutions.</p>
+                <!-- TO CUSTOMIZE: Replace with your description -->
+            </div>
+
+            <!-- FOOTER COLUMN 2 -->
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="https://your-link-1.com">About</a>
+                <a href="https://your-link-2.com">Programs</a>
+                <a href="https://your-link-3.com">Get Involved</a>
+                <a href="https://your-link-4.com">Contact</a>
+                <!-- TO CUSTOMIZE: Replace URLs and link text -->
+            </div>
+
+            <!-- FOOTER COLUMN 3 -->
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p>Email: your-email@example.com</p>
+                <!-- TO CUSTOMIZE: Replace with your email -->
+                <p>Phone: +1 (555) 123-4567</p>
+                <!-- TO CUSTOMIZE: Replace with your phone -->
+                <p>Address: Your Address Here</p>
+                <!-- TO CUSTOMIZE: Replace with your address -->
+            </div>
+
+            <!-- FOOTER COLUMN 4 -->
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <a href="https://sdgs.un.org/goals/goal16" target="_blank">Learn about SDG 16</a>
+                <a href="https://your-link.com">Annual Report</a>
+                <a href="https://your-link.com">News & Updates</a>
+                <a href="https://your-link.com">Privacy Policy</a>
+                <!-- TO CUSTOMIZE: Replace URLs and link text -->
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Organization Name. All rights reserved.</p>
+            <!-- TO CUSTOMIZE: Replace organization name and year -->
+        </div>
+    </footer>
+</body>
+</html>
